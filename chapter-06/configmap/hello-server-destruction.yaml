@@ -10,6 +10,7 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 0
+      maxUnavailable: 25%
   replicas: 1
   selector:
     matchLabels:
@@ -40,3 +41,4 @@ metadata:
   name: hello-server-configmap
 data:
   PORT: "8081"
+  HOST: "localhost"

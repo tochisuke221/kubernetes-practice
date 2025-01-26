@@ -21,7 +21,7 @@ spec:
         volumeMounts:
         - name: hello-server-config
           mountPath: /etc/config
-      volumes: # 修正：volumes の位置を移動
+      volumes:
       - name: hello-server-config
         configMap:
           name: hello-server-configmap
@@ -32,5 +32,4 @@ metadata:
   name: hello-server-configmap
 data:
   myconfig.txt: |-
-    This is test
-
+    I am hungry.

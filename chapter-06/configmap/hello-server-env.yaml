@@ -1,4 +1,5 @@
-apiVersion: app/v1
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-server
@@ -13,20 +14,20 @@ spec:
     metadata:
       labels:
         app: hello-server
-   spec:
-     containers:
-     - name: hello^server
-       image: blux2/hello-server:1.4
-       env:
-       - name: PORT
-         valueFrom:
-           configMapKeyRef:
-             name: hello-server-configmap
-             key: PORT
+    spec:
+      containers:
+      - name: hello-server
+        image: blux2/hello-server:1.4
+        env:
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: hello-server-configmap
+              key: PORT
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-server-configmap
 data:
   PORT: "8081"
-
